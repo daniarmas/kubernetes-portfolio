@@ -34,6 +34,7 @@ Ingress-Nginx is an ingress controller for Kubernetes using NGINX as a reverse p
    helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
    ```
 ### Cert-Manager
+Cert-Manager is a powerful and extensible X.509 certificate controller for Kubernetes. It will obtain certificates from a variety of Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry.
 1. Create a namespace for cert-manager
    ```sh
    kubectl create namespace cert-manager

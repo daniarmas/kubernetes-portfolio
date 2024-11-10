@@ -55,7 +55,7 @@ A powerful and extensible X.509 certificate controller for Kubernetes that obtai
    ```
 ### ExternalDNS
 
-ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers, making Kubernetes resources discoverable via public DNS servers.
+Synchronizes exposed Kubernetes Services and Ingresses with DNS providers, making Kubernetes resources discoverable via public DNS servers.
 
 1. The ExternalDNS Helm chart is a part of the Bitnami chart library. Add it to your Helm installation by running the following command
    ```sh

@@ -35,7 +35,7 @@ An ingress controller for Kubernetes that uses NGINX as a reverse proxy and load
    ```
 ### Cert-Manager
 
-Cert-Manager is a powerful and extensible X.509 certificate controller for Kubernetes. It will obtain certificates from a variety of Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry.
+A powerful and extensible X.509 certificate controller for Kubernetes that obtains certificates from various issuers, ensures they are valid and up-to-date, and attempts renewal at a configured time before expiry.
 
 1. Create a namespace for cert-manager
    ```sh

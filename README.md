@@ -19,7 +19,7 @@ This repository contains all the Kubernetes manifests and configuration files ne
 
 ### Ingress-Nginx
 
-Ingress-Nginx is an ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer to route traffic to the appropriate services, offering features like SSL termination and path-based routing.
+An ingress controller for Kubernetes that uses NGINX as a reverse proxy and load balancer to route traffic to the appropriate services, offering features like SSL termination and path-based routing.
 
 1. Add the Ingress Helm repository
    ```sh

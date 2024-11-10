@@ -19,7 +19,7 @@ This repository contains all the Kubernetes manifests and configuration files ne
 
 ### Ingress-Nginx
 
-Ingress-Nginx is an ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer to route traffic to the appropriate services, offering features like SSL termination and path-based routing.
+An ingress controller for Kubernetes that uses NGINX as a reverse proxy and load balancer to route traffic to the appropriate services, offering features like SSL termination and path-based routing.
 
 1. Add the Ingress Helm repository
    ```sh
@@ -35,7 +35,7 @@ Ingress-Nginx is an ingress controller for Kubernetes using NGINX as a reverse p
    ```
 ### Cert-Manager
 
-Cert-Manager is a powerful and extensible X.509 certificate controller for Kubernetes. It will obtain certificates from a variety of Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry.
+A powerful and extensible X.509 certificate controller for Kubernetes that obtains certificates from various issuers, ensures they are valid and up-to-date, and attempts renewal at a configured time before expiry.
 
 1. Create a namespace for cert-manager
    ```sh
@@ -55,7 +55,7 @@ Cert-Manager is a powerful and extensible X.509 certificate controller for Kuber
    ```
 ### ExternalDNS
 
-ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers, making Kubernetes resources discoverable via public DNS servers.
+Synchronizes exposed Kubernetes Services and Ingresses with DNS providers, making Kubernetes resources discoverable via public DNS servers.
 
 1. The ExternalDNS Helm chart is a part of the Bitnami chart library. Add it to your Helm installation by running the following command
    ```sh

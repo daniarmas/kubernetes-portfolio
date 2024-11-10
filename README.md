@@ -2,20 +2,15 @@
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <h3 align="center">Kubernetes Portfolio</h3>
-  <p align="center">
-    <br />
-    <br />
-    <br />
-  </p>
-</div>
+# Kubernetes Portfolio
 
 This repository contains all the Kubernetes manifests and configuration files needed to deploy and manage my portfolio applications. It includes configurations for deployments, services, ingresses, and any other resources required to run the apps in a Kubernetes environment.
+
+# How-to-steps
+
+1. Install these tools, which I would describe as [Kubernetes Infrastructure Components](#kubernetes-infrastructure-components) as they are essential for deploying and managing applications in a production-ready environment.
+
+# Kubernetes Infrastructure Components
 
 ### Ingress-Nginx
 

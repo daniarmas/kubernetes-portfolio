@@ -1,0 +1,57 @@
+# This file is responsible for creating a statefulset for the postgres deployment
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  serviceName: "postgres"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:17.1
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "changeme"
+        - name: POSTGRES_PASSWORD
+          value: "changeme"
+        - name: POSTGRES_DB
+          value: "changeme"
+        - name: PGDATA
+          value: "/var/lib/postgresql/data/pgdata" # Use a subdirectory for PGDATA
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+        livenessProbe:
+          exec:
+            command:
+            - pg_isready
+            - -U
+            - changeme
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - pg_isready
+            - -U
+            - changeme
+          initialDelaySeconds: 5
+          periodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi

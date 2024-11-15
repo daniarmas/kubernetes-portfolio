@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis/redis-stack-server:7.4.0-v0
+        ports:
+        - containerPort: 6379
+        command:
+        - "redis-server"
+        - "/etc/redis/redis.conf"
+        volumeMounts:
+        - name: redis-config-volume
+          mountPath: /etc/redis/redis.conf
+          subPath: redis.conf
+        readinessProbe:
+          exec:
+            command:
+            - "redis-cli"
+            - "ping"
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+          successThreshold: 1
+        livenessProbe:
+          exec:
+            command:
+            - "redis-cli"
+            - "ping"
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          failureThreshold: 3
+          successThreshold: 1
+      volumes:
+      - name: redis-config-volume
+        configMap:
+          name: redis-config
+          items:
+          - key: redis.conf
+            path: redis.conf
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-insight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-insight
+  template:
+    metadata:
+      labels:
+        app: redis-insight
+    spec:
+      containers:
+      - name: redis-insight
+        image: redis/redisinsight:2.54
+        ports:
+        - containerPort: 5540
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5540
+          initialDelaySeconds: 15
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5540
+          initialDelaySeconds: 20
+          periodSeconds: 10

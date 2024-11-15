@@ -6,9 +6,16 @@
 
 This repository contains all the Kubernetes manifests and configuration files needed to deploy and manage my portfolio applications. It includes configurations for deployments, services, ingresses, and any other resources required to run the apps in a Kubernetes environment.
 
+---
+
+**IMPORTANT** _This setup is for development and testing only._
+
+---
+
 # How-to-steps
 
-1. Install these tools, which I would describe as [Kubernetes Infrastructure Components](#kubernetes-infrastructure-components) as they are essential for deploying and managing applications in a production-ready environment.
+1. Install these tools, which I would describe as [Kubernetes Infrastructure Components](#kubernetes-infrastructure-components) as they are essential for deploying and managing applications in a kubernetes environment.
+2. To deploy the [Notes](https://github.com/daniarmas/notes) app read the [instructions](notes-app/README.md).
 
 # Kubernetes Infrastructure Components
 
@@ -48,23 +55,6 @@ A powerful and extensible X.509 certificate controller for Kubernetes that obtai
    ```sh
    helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.10.1 --set installCRDs=true
    ```
-### ExternalDNS
-
-Synchronizes exposed Kubernetes Services and Ingresses with DNS providers, making Kubernetes resources discoverable via public DNS servers.
-
-1. The ExternalDNS Helm chart is a part of the Bitnami chart library. Add it to your Helm installation by running the following command
-   ```sh
-   helm repo add bitnami https://charts.bitnami.com/bitnami
-   ```
-2. Then, refresh Helm’s cache to download its contents
-   ```sh
-   helm repo update
-   ```
-3. Finally, install ExternalDNS to your cluster by running
-   ```sh
-   helm install external-dns bitnami/external-dns -f externaldns-values.yaml
-   ```
-
 
 <!-- LICENSE -->
 ## License

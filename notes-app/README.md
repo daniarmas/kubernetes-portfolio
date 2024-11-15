@@ -4,16 +4,7 @@
 
 # Notes App
 
-This is a RESTful API for a notes application.
-
 [Github Project](https://github.com/daniarmas/notes)
-
-### Built With
-
-* Programming language - [Go](https://go.dev)
-* Http server - [net/http](https://pkg.go.dev/net/http)
-* Database - [CockroachDB](https://www.cockroachlabs.com/docs/stable/)
-* Cache - [Redis](https://redis.io/)
 
 [license-url]: https://github.com/daniarmas/notes/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
@@ -24,4 +15,12 @@ This is a RESTful API for a notes application.
 1. Create the app namespace
    ```sh
    kubectl create namespace notes-app
+   ```
+2. Install postgres
+   ```sh
+   kubectl apply -f postgres/.
+   ```
+2. Install pgadmin
+   ```sh
+   kubectl apply -f pgadmin/.
    ```
